@@ -48,7 +48,15 @@ public class DrawGizmo : MonoBehaviour
             segments = 300;
             angle = 90.0f;
             deltaAngle = angle / segments;            
-
+            for (int i = 0; i < vertex.Length; i++)
+            {
+                Vector3 pos = transform.position + Quaternion.Euler(0.0f, -angle / 2 + deltaAngle * i, 0.0f) * transform.forward * radius;
+                vertex[i] = pos;
+            }
+            for (int i = 0; i < vertex.Length - 1; i++)
+            {
+                Gizmos.DrawLine(vertex[i], vertex[i + 1]);
+            }
             Gizmos.DrawLine(transform.position, vertex[0]);
             Gizmos.DrawLine(transform.position, vertex[vertex.Length - 1]);
         }
