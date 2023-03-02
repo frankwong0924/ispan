@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DrawGizmo : MonoBehaviour
 {
-    public int accurate = 3; 
+    public int accurate = 5; 
     bool isHit;
     RaycastHit raycastHit;
     void Start()
